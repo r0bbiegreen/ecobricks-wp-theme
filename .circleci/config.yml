@@ -17,5 +17,8 @@ jobs:
       # deploy
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:FE2N2rryNd7RjnOV3MT0W+g7JkdvSab2p1vkklpfvXc"
+            - "SHA256:OvKvFdy1Coa7uZHNsd+8TzP9WVydgTqTqTkX2GEJOxI"
+# 256 SHA256:OvKvFdy1Coa7uZHNsd+8TzP9WVydgTqTqTkX2GEJOxI ssh.ecobricks.org (ECDSA)
+# 2048 SHA256:PLH4uL+5qZ7d3CbiYhhHZHwcfYCpnDbao6uaZoqR0VY ssh.ecobricks.org (RSA)
+# 256 SHA256:VzzYVQkdjsQEB2zcB5YLlCV8mqy8wtwNvcK/wKOYJPA ssh.ecobricks.org (ED25519)
       - run: scp -r * deployer@ssh.ecobricks.org:/var/www/html/wp-content/themes/ecobricks-wp-theme/
