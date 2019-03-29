@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:cl7.2.7-clii
+      - image: circleci/php
 
     steps:
       - checkout
