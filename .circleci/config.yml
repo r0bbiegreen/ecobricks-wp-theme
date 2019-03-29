@@ -17,5 +17,5 @@ jobs:
       # deploy
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:RTlPWZwfN56ETk4HQpOh6TvrbQziW+s36lcu86aqpdM"
+            - "e4:e9:75:10:7f:ae:97:81:8a:71:f9:77:51:e4:54:fb"
       - run: scp -r * deployer@ssh.ecobricks.org:/var/www/html/wp-content/themes/ecobricks-wp-theme/
