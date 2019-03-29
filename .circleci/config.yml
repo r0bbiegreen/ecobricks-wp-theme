@@ -14,8 +14,7 @@ jobs:
       # quick linting
       - run: php -l *.php
 
-    # deploy
-    steps:
+      # deploy
       - add_ssh_keys:
           fingerprints:
             - "e4:e9:75:10:7f:ae:97:81:8a:71:f9:77:51:e4:54:fb"
