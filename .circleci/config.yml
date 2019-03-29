@@ -1,0 +1,18 @@
+# PHP CircleCI 2.0 configuration file
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.2.7-cli
+
+    steps:
+      - checkout
+
+      - run: sudo apt update
+      # - run: sudo docker-php-ext-install zip
+
+      # quick linting
+      - run: php -l *.php
+
+      # deploy
+      - run: scp -r * deployer@ssh.ecobricks.org:/var/www/html/wp-content/themes/ecobricks-wp-theme/
