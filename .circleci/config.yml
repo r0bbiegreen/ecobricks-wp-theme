@@ -17,8 +17,13 @@ jobs:
       # deploy
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:OvKvFdy1Coa7uZHNsd+8TzP9WVydgTqTqTkX2GEJOxI"
+            # fingerprint from key in project settings
+            - "b8:8e:db:04:67:8b:d4:08:19:e8:07:df:dc:ad:08:18"
+#            - "SHA256:OvKvFdy1Coa7uZHNsd+8TzP9WVydgTqTqTkX2GEJOxI"
 # 256 SHA256:OvKvFdy1Coa7uZHNsd+8TzP9WVydgTqTqTkX2GEJOxI ssh.ecobricks.org (ECDSA)
 # 2048 SHA256:PLH4uL+5qZ7d3CbiYhhHZHwcfYCpnDbao6uaZoqR0VY ssh.ecobricks.org (RSA)
 # 256 SHA256:VzzYVQkdjsQEB2zcB5YLlCV8mqy8wtwNvcK/wKOYJPA ssh.ecobricks.org (ED25519)
-      - run: scp -r * deployer@ssh.ecobricks.org:/var/www/html/wp-content/themes/ecobricks-wp-theme/
+      - run: |
+          chmod 600 ~/.ssh/id_*
+          echo 'ssh.ecobricks.org,207.148.120.231 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKQybVJiij8mghDlc5XMQ7Mphtq5qjPWmCNJQrfsUCNL0DsmvmGEkosiFGH7tMFHwFqf+aJT5PXKoR3Bmlnw0uE=' >> ~/.ssh/known_hosts
+          scp -r * deployer@ssh.ecobricks.org:/var/www/html/wp-content/themes/ecobricks-wp-theme/
